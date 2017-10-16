@@ -23,8 +23,8 @@
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbQueryInformation = new System.Windows.Forms.GroupBox();
             this.tbQueryId = new System.Windows.Forms.TextBox();
             this.lbQueryName = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
-            this.gbInformation = new System.Windows.Forms.GroupBox();
+            this.gbDetail = new System.Windows.Forms.GroupBox();
             this.rbWoman = new System.Windows.Forms.RadioButton();
             this.rbMan = new System.Windows.Forms.RadioButton();
             this.lbSex = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.gbQueryInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
-            this.gbInformation.SuspendLayout();
+            this.gbDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,14 +155,14 @@
             this.dgvStudent.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvStudent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStudent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.学号,
@@ -175,13 +175,13 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
             this.dgvStudent.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudent.RowTemplate.Height = 23;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(561, 236);
@@ -267,35 +267,35 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.BTNImport_Click);
             // 
-            // gbInformation
+            // gbDetail
             // 
-            this.gbInformation.BackColor = System.Drawing.Color.SteelBlue;
-            this.gbInformation.Controls.Add(this.rbWoman);
-            this.gbInformation.Controls.Add(this.rbMan);
-            this.gbInformation.Controls.Add(this.lbSex);
-            this.gbInformation.Controls.Add(this.dtpBDay);
-            this.gbInformation.Controls.Add(this.btnPhoto);
-            this.gbInformation.Controls.Add(this.btnCancel);
-            this.gbInformation.Controls.Add(this.btnSubmit);
-            this.gbInformation.Controls.Add(this.pbPhoto);
-            this.gbInformation.Controls.Add(this.tbEmail);
-            this.gbInformation.Controls.Add(this.tbPhone);
-            this.gbInformation.Controls.Add(this.tbAddress);
-            this.gbInformation.Controls.Add(this.lbEmail);
-            this.gbInformation.Controls.Add(this.tbId);
-            this.gbInformation.Controls.Add(this.lbPhone);
-            this.gbInformation.Controls.Add(this.lbDate);
-            this.gbInformation.Controls.Add(this.lbAddress);
-            this.gbInformation.Controls.Add(this.lbId);
-            this.gbInformation.Controls.Add(this.tbName);
-            this.gbInformation.Controls.Add(this.lbName);
-            this.gbInformation.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gbInformation.Location = new System.Drawing.Point(14, 266);
-            this.gbInformation.Name = "gbInformation";
-            this.gbInformation.Size = new System.Drawing.Size(905, 189);
-            this.gbInformation.TabIndex = 3;
-            this.gbInformation.TabStop = false;
-            this.gbInformation.Text = "学生明细";
+            this.gbDetail.BackColor = System.Drawing.Color.SteelBlue;
+            this.gbDetail.Controls.Add(this.rbWoman);
+            this.gbDetail.Controls.Add(this.rbMan);
+            this.gbDetail.Controls.Add(this.lbSex);
+            this.gbDetail.Controls.Add(this.dtpBDay);
+            this.gbDetail.Controls.Add(this.btnPhoto);
+            this.gbDetail.Controls.Add(this.btnCancel);
+            this.gbDetail.Controls.Add(this.btnSubmit);
+            this.gbDetail.Controls.Add(this.pbPhoto);
+            this.gbDetail.Controls.Add(this.tbEmail);
+            this.gbDetail.Controls.Add(this.tbPhone);
+            this.gbDetail.Controls.Add(this.tbAddress);
+            this.gbDetail.Controls.Add(this.lbEmail);
+            this.gbDetail.Controls.Add(this.tbId);
+            this.gbDetail.Controls.Add(this.lbPhone);
+            this.gbDetail.Controls.Add(this.lbDate);
+            this.gbDetail.Controls.Add(this.lbAddress);
+            this.gbDetail.Controls.Add(this.lbId);
+            this.gbDetail.Controls.Add(this.tbName);
+            this.gbDetail.Controls.Add(this.lbName);
+            this.gbDetail.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gbDetail.Location = new System.Drawing.Point(14, 266);
+            this.gbDetail.Name = "gbDetail";
+            this.gbDetail.Size = new System.Drawing.Size(905, 189);
+            this.gbDetail.TabIndex = 3;
+            this.gbDetail.TabStop = false;
+            this.gbDetail.Text = "学生明细";
             // 
             // rbWoman
             // 
@@ -519,7 +519,7 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(962, 464);
-            this.Controls.Add(this.gbInformation);
+            this.Controls.Add(this.gbDetail);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnModify);
@@ -538,8 +538,8 @@
             this.gbQueryInformation.ResumeLayout(false);
             this.gbQueryInformation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
-            this.gbInformation.ResumeLayout(false);
-            this.gbInformation.PerformLayout();
+            this.gbDetail.ResumeLayout(false);
+            this.gbDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);
 
@@ -564,7 +564,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.GroupBox gbInformation;
+        private System.Windows.Forms.GroupBox gbDetail;
         private System.Windows.Forms.Button btnPhoto;
         private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.TextBox tbId;

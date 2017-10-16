@@ -15,6 +15,9 @@ namespace StudentManger {
         private List<string> queryStudentList = new List<string>(); // 保持查询到的学生信息
         public fmMain() {
             InitializeComponent();
+
+            // 禁用详情区域
+            gbDetail.Enabled = false;
         }
 
 
