@@ -12,6 +12,7 @@ namespace StudentManger {
     public partial class fmMain : Form {
         private string fileName = string.Empty; // 数据文件路径
         private List<string> studentList = new List<string>(); // 保存读取到的学生信息
+        private List<string> queryStudentList = new List<string>(); // 保持查询到的学生信息
         public fmMain() {
             InitializeComponent();
         }
@@ -68,6 +69,22 @@ namespace StudentManger {
                 LoadDataToDetail(currentDetail);
             }
         }
+
+        // 按学号查询事件
+        private void tbQueryId_TextChanged(object sender, EventArgs e) {
+            Query(tbQueryId.Text);
+        }
+
+        // 按姓名查询事件
+        private void tbQueryName_TextChanged(object sender, EventArgs e) {
+            Query(tbQueryName.Text);
+        }
+
+        // 按手机号查询事件
+        private void tbQueryPhone_TextChanged(object sender, EventArgs e) {
+            Query(tbQueryPhone.Text);
+        }
+
         // 读取数据
         private List<string> ReadFileToList(string filePath) {
             List<string> list = new List<string>();
@@ -126,6 +143,16 @@ namespace StudentManger {
             return currentStudent;
         }
 
-        
+        // 查询
+        private void Query(string text) {
+            queryStudentList.Clear();
+            foreach (string item in studentList) {
+                if (item.Contains(text)) {
+                    queryStudentList.Add(item);
+                }
+                dgvStudent.Rows.Clear();
+                LoadDataToDateGrid(queryStudentList);
+            }
+        }
     }
 }

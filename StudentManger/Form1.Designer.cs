@@ -23,8 +23,8 @@
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbQueryInformation = new System.Windows.Forms.GroupBox();
             this.tbQueryId = new System.Windows.Forms.TextBox();
             this.lbQueryName = new System.Windows.Forms.Label();
@@ -91,16 +91,17 @@
             // tbQueryId
             // 
             this.tbQueryId.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbQueryId.Location = new System.Drawing.Point(98, 101);
+            this.tbQueryId.Location = new System.Drawing.Point(100, 38);
             this.tbQueryId.Name = "tbQueryId";
             this.tbQueryId.Size = new System.Drawing.Size(128, 29);
             this.tbQueryId.TabIndex = 2;
+            this.tbQueryId.TextChanged += new System.EventHandler(this.tbQueryId_TextChanged);
             // 
             // lbQueryName
             // 
             this.lbQueryName.AutoSize = true;
             this.lbQueryName.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbQueryName.Location = new System.Drawing.Point(7, 51);
+            this.lbQueryName.Location = new System.Drawing.Point(16, 112);
             this.lbQueryName.Name = "lbQueryName";
             this.lbQueryName.Size = new System.Drawing.Size(72, 19);
             this.lbQueryName.TabIndex = 1;
@@ -109,16 +110,17 @@
             // tbQueryPhone
             // 
             this.tbQueryPhone.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbQueryPhone.Location = new System.Drawing.Point(98, 166);
+            this.tbQueryPhone.Location = new System.Drawing.Point(100, 174);
             this.tbQueryPhone.Name = "tbQueryPhone";
             this.tbQueryPhone.Size = new System.Drawing.Size(128, 29);
             this.tbQueryPhone.TabIndex = 2;
+            this.tbQueryPhone.TextChanged += new System.EventHandler(this.tbQueryPhone_TextChanged);
             // 
             // lbQueryPhone
             // 
             this.lbQueryPhone.AutoSize = true;
             this.lbQueryPhone.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbQueryPhone.Location = new System.Drawing.Point(-5, 177);
+            this.lbQueryPhone.Location = new System.Drawing.Point(16, 176);
             this.lbQueryPhone.Name = "lbQueryPhone";
             this.lbQueryPhone.Size = new System.Drawing.Size(93, 19);
             this.lbQueryPhone.TabIndex = 1;
@@ -127,16 +129,17 @@
             // tbQueryName
             // 
             this.tbQueryName.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbQueryName.Location = new System.Drawing.Point(98, 40);
+            this.tbQueryName.Location = new System.Drawing.Point(100, 106);
             this.tbQueryName.Name = "tbQueryName";
             this.tbQueryName.Size = new System.Drawing.Size(128, 29);
             this.tbQueryName.TabIndex = 2;
+            this.tbQueryName.TextChanged += new System.EventHandler(this.tbQueryName_TextChanged);
             // 
             // lbQueryId
             // 
             this.lbQueryId.AutoSize = true;
             this.lbQueryId.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbQueryId.Location = new System.Drawing.Point(2, 114);
+            this.lbQueryId.Location = new System.Drawing.Point(16, 48);
             this.lbQueryId.Name = "lbQueryId";
             this.lbQueryId.Size = new System.Drawing.Size(72, 19);
             this.lbQueryId.TabIndex = 1;
@@ -152,14 +155,14 @@
             this.dgvStudent.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvStudent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStudent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.学号,
@@ -172,13 +175,13 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
             this.dgvStudent.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvStudent.RowTemplate.Height = 23;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(561, 236);
