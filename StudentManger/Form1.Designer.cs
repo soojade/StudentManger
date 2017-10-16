@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbQueryInformation = new System.Windows.Forms.GroupBox();
             this.tbQueryId = new System.Windows.Forms.TextBox();
             this.lbQueryName = new System.Windows.Forms.Label();
@@ -31,7 +32,7 @@
             this.lbQueryPhone = new System.Windows.Forms.Label();
             this.tbQueryName = new System.Windows.Forms.TextBox();
             this.lbQueryId = new System.Windows.Forms.Label();
-            this.dgvtable = new System.Windows.Forms.DataGridView();
+            this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.学号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +46,7 @@
             this.rbWoman = new System.Windows.Forms.RadioButton();
             this.rbMan = new System.Windows.Forms.RadioButton();
             this.lbSex = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpBDay = new System.Windows.Forms.DateTimePicker();
             this.btnPhoto = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -63,7 +64,7 @@
             this.lbName = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.gbQueryInformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvtable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.gbInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
@@ -141,13 +142,16 @@
             this.lbQueryId.TabIndex = 1;
             this.lbQueryId.Text = "学号：";
             // 
-            // dgvtable
+            // dgvStudent
             // 
-            this.dgvtable.AllowUserToAddRows = false;
-            this.dgvtable.AllowUserToDeleteRows = false;
-            this.dgvtable.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.dgvtable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvtable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvStudent.AllowUserToAddRows = false;
+            this.dgvStudent.AllowUserToDeleteRows = false;
+            this.dgvStudent.AllowUserToOrderColumns = true;
+            this.dgvStudent.AllowUserToResizeColumns = false;
+            this.dgvStudent.AllowUserToResizeRows = false;
+            this.dgvStudent.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dgvStudent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvStudent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -155,22 +159,31 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvtable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvtable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvtable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.学号,
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvtable.EnableHeadersVisualStyles = false;
-            this.dgvtable.Location = new System.Drawing.Point(255, 14);
-            this.dgvtable.Name = "dgvtable";
-            this.dgvtable.ReadOnly = true;
-            this.dgvtable.RowHeadersVisible = false;
-            this.dgvtable.RowTemplate.Height = 23;
-            this.dgvtable.Size = new System.Drawing.Size(561, 236);
-            this.dgvtable.TabIndex = 1;
+            this.dgvStudent.EnableHeadersVisualStyles = false;
+            this.dgvStudent.Location = new System.Drawing.Point(255, 14);
+            this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.ReadOnly = true;
+            this.dgvStudent.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvStudent.RowTemplate.Height = 23;
+            this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStudent.Size = new System.Drawing.Size(561, 236);
+            this.dgvStudent.TabIndex = 1;
+            this.dgvStudent.SelectionChanged += new System.EventHandler(this.dgvStudent_SelectionChanged);
             // 
             // 学号
             // 
@@ -257,7 +270,7 @@
             this.gbInformation.Controls.Add(this.rbWoman);
             this.gbInformation.Controls.Add(this.rbMan);
             this.gbInformation.Controls.Add(this.lbSex);
-            this.gbInformation.Controls.Add(this.dateTimePicker1);
+            this.gbInformation.Controls.Add(this.dtpBDay);
             this.gbInformation.Controls.Add(this.btnPhoto);
             this.gbInformation.Controls.Add(this.btnCancel);
             this.gbInformation.Controls.Add(this.btnSubmit);
@@ -273,7 +286,7 @@
             this.gbInformation.Controls.Add(this.lbId);
             this.gbInformation.Controls.Add(this.tbName);
             this.gbInformation.Controls.Add(this.lbName);
-            this.gbInformation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gbInformation.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gbInformation.Location = new System.Drawing.Point(14, 266);
             this.gbInformation.Name = "gbInformation";
             this.gbInformation.Size = new System.Drawing.Size(905, 189);
@@ -285,7 +298,7 @@
             // 
             this.rbWoman.AutoSize = true;
             this.rbWoman.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbWoman.Location = new System.Drawing.Point(267, 106);
+            this.rbWoman.Location = new System.Drawing.Point(267, 103);
             this.rbWoman.Name = "rbWoman";
             this.rbWoman.Size = new System.Drawing.Size(42, 20);
             this.rbWoman.TabIndex = 5;
@@ -297,7 +310,7 @@
             // 
             this.rbMan.AutoSize = true;
             this.rbMan.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbMan.Location = new System.Drawing.Point(208, 105);
+            this.rbMan.Location = new System.Drawing.Point(208, 103);
             this.rbMan.Name = "rbMan";
             this.rbMan.Size = new System.Drawing.Size(42, 20);
             this.rbMan.TabIndex = 5;
@@ -309,18 +322,21 @@
             // 
             this.lbSex.AutoSize = true;
             this.lbSex.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbSex.Location = new System.Drawing.Point(135, 105);
+            this.lbSex.Location = new System.Drawing.Point(132, 107);
             this.lbSex.Name = "lbSex";
             this.lbSex.Size = new System.Drawing.Size(56, 16);
             this.lbSex.TabIndex = 4;
             this.lbSex.Text = "性别：";
             // 
-            // dateTimePicker1
+            // dtpBDay
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(656, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(184, 29);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtpBDay.CalendarMonthBackground = System.Drawing.Color.Transparent;
+            this.dtpBDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBDay.Location = new System.Drawing.Point(629, 24);
+            this.dtpBDay.Name = "dtpBDay";
+            this.dtpBDay.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtpBDay.Size = new System.Drawing.Size(125, 26);
+            this.dtpBDay.TabIndex = 3;
             // 
             // btnPhoto
             // 
@@ -366,25 +382,31 @@
             // tbEmail
             // 
             this.tbEmail.BackColor = System.Drawing.Color.SteelBlue;
+            this.tbEmail.ForeColor = System.Drawing.Color.Yellow;
             this.tbEmail.Location = new System.Drawing.Point(626, 94);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(128, 29);
+            this.tbEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbEmail.Size = new System.Drawing.Size(128, 26);
             this.tbEmail.TabIndex = 2;
             // 
             // tbPhone
             // 
             this.tbPhone.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbPhone.Location = new System.Drawing.Point(409, 96);
+            this.tbPhone.ForeColor = System.Drawing.Color.Yellow;
+            this.tbPhone.Location = new System.Drawing.Point(409, 94);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(128, 29);
+            this.tbPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbPhone.Size = new System.Drawing.Size(128, 26);
             this.tbPhone.TabIndex = 2;
             // 
             // tbAddress
             // 
             this.tbAddress.BackColor = System.Drawing.Color.SteelBlue;
+            this.tbAddress.ForeColor = System.Drawing.Color.Yellow;
             this.tbAddress.Location = new System.Drawing.Point(238, 136);
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(516, 29);
+            this.tbAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbAddress.Size = new System.Drawing.Size(516, 26);
             this.tbAddress.TabIndex = 2;
             // 
             // lbEmail
@@ -392,7 +414,7 @@
             this.lbEmail.AutoSize = true;
             this.lbEmail.BackColor = System.Drawing.Color.SteelBlue;
             this.lbEmail.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbEmail.Location = new System.Drawing.Point(554, 105);
+            this.lbEmail.Location = new System.Drawing.Point(544, 107);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(56, 16);
             this.lbEmail.TabIndex = 1;
@@ -401,9 +423,11 @@
             // tbId
             // 
             this.tbId.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbId.Location = new System.Drawing.Point(412, 22);
+            this.tbId.ForeColor = System.Drawing.Color.Yellow;
+            this.tbId.Location = new System.Drawing.Point(401, 24);
             this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(128, 29);
+            this.tbId.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbId.Size = new System.Drawing.Size(128, 26);
             this.tbId.TabIndex = 2;
             // 
             // lbPhone
@@ -411,7 +435,7 @@
             this.lbPhone.AutoSize = true;
             this.lbPhone.BackColor = System.Drawing.Color.SteelBlue;
             this.lbPhone.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbPhone.Location = new System.Drawing.Point(337, 106);
+            this.lbPhone.Location = new System.Drawing.Point(339, 107);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(56, 16);
             this.lbPhone.TabIndex = 1;
@@ -422,7 +446,7 @@
             this.lbDate.AutoSize = true;
             this.lbDate.BackColor = System.Drawing.Color.SteelBlue;
             this.lbDate.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbDate.Location = new System.Drawing.Point(558, 35);
+            this.lbDate.Location = new System.Drawing.Point(544, 37);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(88, 16);
             this.lbDate.TabIndex = 1;
@@ -445,7 +469,7 @@
             this.lbId.AutoSize = true;
             this.lbId.BackColor = System.Drawing.Color.SteelBlue;
             this.lbId.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbId.Location = new System.Drawing.Point(339, 35);
+            this.lbId.Location = new System.Drawing.Point(339, 37);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(56, 16);
             this.lbId.TabIndex = 1;
@@ -454,9 +478,11 @@
             // tbName
             // 
             this.tbName.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbName.Location = new System.Drawing.Point(188, 22);
+            this.tbName.ForeColor = System.Drawing.Color.Yellow;
+            this.tbName.Location = new System.Drawing.Point(188, 24);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(128, 29);
+            this.tbName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbName.Size = new System.Drawing.Size(128, 26);
             this.tbName.TabIndex = 2;
             // 
             // lbName
@@ -496,19 +522,19 @@
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.dgvtable);
+            this.Controls.Add(this.dgvStudent);
             this.Controls.Add(this.gbQueryInformation);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fmMain";
-            this.Opacity = 0.85D;
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.fmMain_Load);
             this.gbQueryInformation.ResumeLayout(false);
             this.gbQueryInformation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvtable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             this.gbInformation.ResumeLayout(false);
             this.gbInformation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
@@ -525,7 +551,7 @@
         private System.Windows.Forms.Label lbQueryPhone;
         private System.Windows.Forms.TextBox tbQueryName;
         private System.Windows.Forms.Label lbQueryId;
-        private System.Windows.Forms.DataGridView dgvtable;
+        private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn 学号;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -547,7 +573,7 @@
         private System.Windows.Forms.RadioButton rbWoman;
         private System.Windows.Forms.RadioButton rbMan;
         private System.Windows.Forms.Label lbSex;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpBDay;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox tbEmail;
