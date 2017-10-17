@@ -13,6 +13,8 @@ namespace StudentManger {
         private string fileName = string.Empty; // 数据文件路径
         private List<string> studentList = new List<string>(); // 保存读取到的学生信息
         private List<string> queryStudentList = new List<string>(); // 保持查询到的学生信息
+        private int flag = 0; // 判断添加还是修改 0修改 1添加
+
         public fmMain() {
             InitializeComponent();
 
@@ -22,10 +24,6 @@ namespace StudentManger {
 
 
         private void groupBox1_Enter(object sender, EventArgs e) {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
 
         }
 
@@ -60,6 +58,96 @@ namespace StudentManger {
             string currentId = dgvStudent.Rows[0].Cells[0].Value.ToString();
             string[] currentDetail = GetStudentById(currentId).Split(',');
             LoadDataToDetail(currentDetail);
+        }
+
+
+        // 进入添加数据状态
+        private void btnAdd_Click(object sender, EventArgs e) {
+            ToggleEnable(false);
+            InputEmpty();
+            tbName.Focus();
+            flag = 1;
+        }
+
+        // 进入修改数据状态
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            tbId.Enabled = false; // 学号不能修改
+
+            ToggleEnable(false);
+            tbName.Focus();
+            flag = 0;
+
+        }
+
+        // 删除数据
+        private void btnDelete_Click(object sender, EventArgs e) {
+            if (dgvStudent.CurrentRow.Selected==false) {
+                MessageBox.Show("请先选中后再删除", "系统信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            } else {
+                string info = "确定要删除" + dgvStudent.CurrentRow.Cells[0].Value + "号学生信息吗？";
+                DialogResult res = MessageBox.Show(info, "系统信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res==DialogResult.Yes) {
+                    string student = GetStudentById(dgvStudent.CurrentRow.Cells[0].Value.ToString());
+                    foreach (var item in studentList) {
+                        if (item.Equals(student)) {
+                            studentList.Remove(item);
+                            dgvStudent.Rows.Clear();
+                            LoadDataToDateGrid(studentList);
+                            MessageBox.Show("删除成功", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
+                    }
+                } else {
+                    return;
+                }
+            }
+        }
+
+        // 提交数据
+        private void btnSubmit_Click(object sender, EventArgs e) {
+            if (!Verification()) {
+                return;
+            } else {
+                string id = tbId.Text.Trim();
+                string name = tbName.Text.Trim();
+                string sex = rbMan.Checked == true ? "男" : "女";
+                string bday = dtpBDay.Text;
+                string phone = tbPhone.Text.Trim();
+                string email = tbEmail.Text.Trim();
+                string addr = tbAddress.Text.Trim();
+                string photo = string.Empty;
+                string student = id + ',' + name + ',' + sex + ',' + bday + ',' + phone + ',' + email + ',' + addr;
+                switch (flag) {
+                    case 0: // 修改
+                        for (int i = 0; i < studentList.Count; i++) {
+                            if (studentList[i].StartsWith(id)) {
+                                studentList.RemoveAt(i);
+                                studentList.Insert(i, student);
+                                dgvStudent.Rows.Clear();
+                                LoadDataToDateGrid(studentList);
+                                break;
+                            }
+                        }
+                        MessageBox.Show("修改成功", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        InputEmpty();
+                        ToggleEnable(true);
+                        break;
+                    case 1: // 添加
+                        studentList.Add(student);
+                        dgvStudent.Rows.Clear();
+                        LoadDataToDateGrid(studentList);
+                        MessageBox.Show("添加成功", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        InputEmpty();
+                        ToggleEnable(true);
+                        break;
+                }
+            }
+        }
+
+        // 取消修改
+        private void btnCancel_Click(object sender, EventArgs e) {
+
         }
 
         // 表格选中事件
@@ -121,8 +209,8 @@ namespace StudentManger {
 
         // 把数据读入详情列表
         private void LoadDataToDetail(string[] student) {
-            tbName.Text = student[0];
-            tbId.Text = student[1];
+            tbId.Text = student[0];
+            tbName.Text = student[1];
             if (student[2] == "男") {
                 rbMan.Checked = true;
             } else {
@@ -156,6 +244,51 @@ namespace StudentManger {
                 dgvStudent.Rows.Clear();
                 LoadDataToDateGrid(queryStudentList);
             }
+        }
+
+        // 开关转换
+        private void ToggleEnable(bool bl) {
+            btnImport.Enabled = bl;
+            btnAdd.Enabled = bl;
+            btnDelete.Enabled = bl;
+            btnUpdate.Enabled = bl;
+            gbDetail.Enabled = !bl;
+        }
+
+        // 清空详情区输入框
+        private void InputEmpty() {
+            tbName.Text = "";
+            tbId.Text = "";
+            tbEmail.Text = "";
+            tbPhone.Text = "";
+            tbAddress.Text = "";
+            dtpBDay.Text = "";
+            rbMan.Checked = false;
+            rbWoman.Checked = false;
+        }
+
+        // 输入验证
+        private bool Verification() {
+            bool bl = true;
+            // 学号 姓名不能为空，学号不能重复
+            if (string.IsNullOrWhiteSpace(tbId.Text)) {
+                MessageBox.Show("学号不能为空！", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbId.Focus();
+                bl=false;
+            }
+            if (string.IsNullOrWhiteSpace(tbName.Text)) {
+                MessageBox.Show("姓名不能为空！", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbName.Focus();
+                bl = false;
+            }
+            if (flag==1) {
+                if (GetStudentById(tbId.Text.Trim())!="") {
+                    MessageBox.Show("该学号已存在，请重新输入！", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbId.Focus();
+                    bl = false;
+                }
+            }
+            return bl;
         }
     }
 }

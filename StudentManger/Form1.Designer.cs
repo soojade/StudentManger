@@ -40,7 +40,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.gbDetail = new System.Windows.Forms.GroupBox();
             this.rbWoman = new System.Windows.Forms.RadioButton();
@@ -185,7 +185,7 @@
             this.dgvStudent.RowTemplate.Height = 23;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(561, 236);
-            this.dgvStudent.TabIndex = 1;
+            this.dgvStudent.TabIndex = 5;
             this.dgvStudent.SelectionChanged += new System.EventHandler(this.dgvStudent_SelectionChanged);
             // 
             // 学号
@@ -228,9 +228,10 @@
             this.btnDelete.Location = new System.Drawing.Point(824, 199);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 50);
-            this.btnDelete.TabIndex = 2;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "删除";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -239,21 +240,22 @@
             this.btnAdd.Location = new System.Drawing.Point(824, 86);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 50);
-            this.btnAdd.TabIndex = 2;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "添加";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button2_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnModify
+            // btnUpdate
             // 
-            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModify.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnModify.Location = new System.Drawing.Point(824, 142);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(96, 50);
-            this.btnModify.TabIndex = 2;
-            this.btnModify.Text = "修改";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnUpdate.Location = new System.Drawing.Point(824, 142);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(96, 50);
+            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.Text = "修改";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnImport
             // 
@@ -262,7 +264,7 @@
             this.btnImport.Location = new System.Drawing.Point(824, 28);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(96, 50);
-            this.btnImport.TabIndex = 2;
+            this.btnImport.TabIndex = 0;
             this.btnImport.Text = "导入";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.BTNImport_Click);
@@ -293,7 +295,7 @@
             this.gbDetail.Location = new System.Drawing.Point(14, 266);
             this.gbDetail.Name = "gbDetail";
             this.gbDetail.Size = new System.Drawing.Size(905, 189);
-            this.gbDetail.TabIndex = 3;
+            this.gbDetail.TabIndex = 4;
             this.gbDetail.TabStop = false;
             this.gbDetail.Text = "学生明细";
             // 
@@ -304,7 +306,7 @@
             this.rbWoman.Location = new System.Drawing.Point(267, 103);
             this.rbWoman.Name = "rbWoman";
             this.rbWoman.Size = new System.Drawing.Size(42, 20);
-            this.rbWoman.TabIndex = 5;
+            this.rbWoman.TabIndex = 3;
             this.rbWoman.TabStop = true;
             this.rbWoman.Text = "女";
             this.rbWoman.UseVisualStyleBackColor = true;
@@ -316,7 +318,7 @@
             this.rbMan.Location = new System.Drawing.Point(208, 103);
             this.rbMan.Name = "rbMan";
             this.rbMan.Size = new System.Drawing.Size(42, 20);
-            this.rbMan.TabIndex = 5;
+            this.rbMan.TabIndex = 3;
             this.rbMan.TabStop = true;
             this.rbMan.Text = "男";
             this.rbMan.UseVisualStyleBackColor = true;
@@ -328,7 +330,7 @@
             this.lbSex.Location = new System.Drawing.Point(132, 107);
             this.lbSex.Name = "lbSex";
             this.lbSex.Size = new System.Drawing.Size(56, 16);
-            this.lbSex.TabIndex = 4;
+            this.lbSex.TabIndex = 3;
             this.lbSex.Text = "性别：";
             // 
             // dtpBDay
@@ -339,7 +341,7 @@
             this.dtpBDay.Name = "dtpBDay";
             this.dtpBDay.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpBDay.Size = new System.Drawing.Size(125, 26);
-            this.dtpBDay.TabIndex = 3;
+            this.dtpBDay.TabIndex = 2;
             // 
             // btnPhoto
             // 
@@ -347,7 +349,7 @@
             this.btnPhoto.Location = new System.Drawing.Point(9, 148);
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(94, 30);
-            this.btnPhoto.TabIndex = 1;
+            this.btnPhoto.TabIndex = 7;
             this.btnPhoto.Text = "选择照片";
             this.btnPhoto.UseVisualStyleBackColor = true;
             // 
@@ -358,9 +360,10 @@
             this.btnCancel.Location = new System.Drawing.Point(796, 131);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(72, 35);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSubmit
             // 
@@ -369,9 +372,10 @@
             this.btnSubmit.Location = new System.Drawing.Point(796, 89);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(72, 35);
-            this.btnSubmit.TabIndex = 2;
+            this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "提交";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // pbPhoto
             // 
@@ -390,7 +394,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbEmail.Size = new System.Drawing.Size(128, 26);
-            this.tbEmail.TabIndex = 2;
+            this.tbEmail.TabIndex = 5;
             // 
             // tbPhone
             // 
@@ -400,7 +404,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbPhone.Size = new System.Drawing.Size(128, 26);
-            this.tbPhone.TabIndex = 2;
+            this.tbPhone.TabIndex = 4;
             // 
             // tbAddress
             // 
@@ -410,7 +414,7 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbAddress.Size = new System.Drawing.Size(516, 26);
-            this.tbAddress.TabIndex = 2;
+            this.tbAddress.TabIndex = 6;
             // 
             // lbEmail
             // 
@@ -420,18 +424,18 @@
             this.lbEmail.Location = new System.Drawing.Point(544, 107);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(56, 16);
-            this.lbEmail.TabIndex = 1;
+            this.lbEmail.TabIndex = 5;
             this.lbEmail.Text = "邮箱：";
             // 
             // tbId
             // 
             this.tbId.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbId.ForeColor = System.Drawing.Color.Yellow;
+            this.tbId.ForeColor = System.Drawing.Color.Gold;
             this.tbId.Location = new System.Drawing.Point(401, 24);
             this.tbId.Name = "tbId";
             this.tbId.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbId.Size = new System.Drawing.Size(128, 26);
-            this.tbId.TabIndex = 2;
+            this.tbId.TabIndex = 1;
             // 
             // lbPhone
             // 
@@ -441,7 +445,7 @@
             this.lbPhone.Location = new System.Drawing.Point(339, 107);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(56, 16);
-            this.lbPhone.TabIndex = 1;
+            this.lbPhone.TabIndex = 4;
             this.lbPhone.Text = "电话：";
             // 
             // lbDate
@@ -452,7 +456,7 @@
             this.lbDate.Location = new System.Drawing.Point(544, 37);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(88, 16);
-            this.lbDate.TabIndex = 1;
+            this.lbDate.TabIndex = 2;
             this.lbDate.Text = "出生日期：";
             this.lbDate.Click += new System.EventHandler(this.label6_Click);
             // 
@@ -464,7 +468,7 @@
             this.lbAddress.Location = new System.Drawing.Point(128, 147);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(88, 16);
-            this.lbAddress.TabIndex = 1;
+            this.lbAddress.TabIndex = 6;
             this.lbAddress.Text = "家庭地址：";
             // 
             // lbId
@@ -486,7 +490,7 @@
             this.tbName.Name = "tbName";
             this.tbName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbName.Size = new System.Drawing.Size(128, 26);
-            this.tbName.TabIndex = 2;
+            this.tbName.TabIndex = 0;
             // 
             // lbName
             // 
@@ -495,7 +499,7 @@
             this.lbName.Location = new System.Drawing.Point(132, 37);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(56, 16);
-            this.lbName.TabIndex = 1;
+            this.lbName.TabIndex = 0;
             this.lbName.Text = "姓名：";
             // 
             // btnClose
@@ -522,7 +526,7 @@
             this.Controls.Add(this.gbDetail);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnImport);
-            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvStudent);
@@ -562,7 +566,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.GroupBox gbDetail;
         private System.Windows.Forms.Button btnPhoto;
