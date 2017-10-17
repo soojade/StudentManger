@@ -14,6 +14,7 @@ namespace StudentManger {
         private List<string> studentList = new List<string>(); // 保存读取到的学生信息
         private List<string> queryStudentList = new List<string>(); // 保持查询到的学生信息
         private int flag = 0; // 判断添加还是修改 0修改 1添加
+        private string path = "";
 
         public fmMain() {
             InitializeComponent();
@@ -22,17 +23,19 @@ namespace StudentManger {
             gbDetail.Enabled = false;
         }
 
-
-        private void groupBox1_Enter(object sender, EventArgs e) {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e) {
-
+        // 关闭程序
+        private void btnClose_Click(object sender, EventArgs e) {
+            DialogResult res = MessageBox.Show("关闭前是否要保存信息？", "系统信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res==DialogResult.Yes) {
+                File.WriteAllText(fileName, ""); // 清空文件原有内容
+                StreamWriter stm = new StreamWriter(fileName, true, Encoding.Default);
+                foreach (var item in studentList) {
+                    stm.WriteLine(item);
+                }
+                stm.Close();
+                MessageBox.Show("写入完成，关闭程序！", "系统信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            Close();
         }
 
         private void fmMain_Load(object sender, EventArgs e) {
@@ -116,8 +119,16 @@ namespace StudentManger {
                 string phone = tbPhone.Text.Trim();
                 string email = tbEmail.Text.Trim();
                 string addr = tbAddress.Text.Trim();
-                string photo = string.Empty;
-                string student = id + ',' + name + ',' + sex + ',' + bday + ',' + phone + ',' + email + ',' + addr;
+
+                string photoPath = DateTime.Now.ToString("yyyyMMddHHmmss");
+                Random rnd = new Random();
+                photoPath += rnd.Next(0, 100).ToString("00");
+                photoPath = ".\\img\\" + photoPath + path.Substring(path.Length - 4);
+
+                Bitmap photoBit = new Bitmap(pbPhoto.BackgroundImage);
+                photoBit.Save(photoPath, pbPhoto.BackgroundImage.RawFormat);
+                photoBit.Dispose();
+                string student = id + ',' + name + ',' + sex + ',' + bday + ',' + phone + ',' + email + ',' + addr+','+ photoPath;
                 switch (flag) {
                     case 0: // 修改
                         for (int i = 0; i < studentList.Count; i++) {
@@ -126,6 +137,7 @@ namespace StudentManger {
                                 studentList.Insert(i, student);
                                 dgvStudent.Rows.Clear();
                                 LoadDataToDateGrid(studentList);
+                                tbId.Enabled = true;
                                 break;
                             }
                         }
@@ -147,7 +159,11 @@ namespace StudentManger {
 
         // 取消修改
         private void btnCancel_Click(object sender, EventArgs e) {
-
+            DialogResult res = MessageBox.Show("确定要取消吗？", "系统信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res==DialogResult.Yes) {
+                InputEmpty();
+                ToggleEnable(true);
+            }
         }
 
         // 表格选中事件
@@ -174,6 +190,16 @@ namespace StudentManger {
         // 按手机号查询事件
         private void tbQueryPhone_TextChanged(object sender, EventArgs e) {
             Query(tbQueryPhone.Text);
+        }
+
+        // 添加照片事件
+        private void btnPhoto_Click(object sender, EventArgs e) {
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "图片|*.jpg;*.png;*.gif";
+            if (file.ShowDialog()==DialogResult.OK) {
+                path = file.FileName;
+                pbPhoto.BackgroundImage = Image.FromFile(path);
+            }
         }
 
         // 读取数据
@@ -220,6 +246,8 @@ namespace StudentManger {
             tbPhone.Text = student[4];
             tbEmail.Text = student[5];
             tbAddress.Text = student[6];
+            pbPhoto.BackgroundImage = student.Length < 8 ? null : Image.FromFile(student[7]);
+
         }
 
         // 获取当前学生
@@ -265,6 +293,7 @@ namespace StudentManger {
             dtpBDay.Text = "";
             rbMan.Checked = false;
             rbWoman.Checked = false;
+            pbPhoto.BackgroundImage = null;
         }
 
         // 输入验证

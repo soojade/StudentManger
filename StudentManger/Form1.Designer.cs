@@ -23,8 +23,8 @@
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbQueryInformation = new System.Windows.Forms.GroupBox();
             this.tbQueryId = new System.Windows.Forms.TextBox();
             this.lbQueryName = new System.Windows.Forms.Label();
@@ -86,7 +86,6 @@
             this.gbQueryInformation.TabIndex = 0;
             this.gbQueryInformation.TabStop = false;
             this.gbQueryInformation.Text = "学生信息查询";
-            this.gbQueryInformation.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tbQueryId
             // 
@@ -155,14 +154,14 @@
             this.dgvStudent.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvStudent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStudent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.学号,
@@ -175,13 +174,13 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
             this.dgvStudent.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvStudent.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvStudent.RowTemplate.Height = 23;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(561, 236);
@@ -350,8 +349,9 @@
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(94, 30);
             this.btnPhoto.TabIndex = 7;
-            this.btnPhoto.Text = "选择照片";
+            this.btnPhoto.Text = "添加照片";
             this.btnPhoto.UseVisualStyleBackColor = true;
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
             // 
             // btnCancel
             // 
@@ -379,6 +379,7 @@
             // 
             // pbPhoto
             // 
+            this.pbPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPhoto.Location = new System.Drawing.Point(7, 21);
             this.pbPhoto.Name = "pbPhoto";
@@ -458,7 +459,6 @@
             this.lbDate.Size = new System.Drawing.Size(88, 16);
             this.lbDate.TabIndex = 2;
             this.lbDate.Text = "出生日期：";
-            this.lbDate.Click += new System.EventHandler(this.label6_Click);
             // 
             // lbAddress
             // 
@@ -512,7 +512,7 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "x";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.button4_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // fmMain
             // 
